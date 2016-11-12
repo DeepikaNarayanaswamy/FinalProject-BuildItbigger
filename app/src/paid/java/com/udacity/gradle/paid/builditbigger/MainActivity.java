@@ -1,5 +1,4 @@
-/*
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.paid.builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-
 import com.example.android.androidjokelibrary.MainJokeActivity;
 import com.jokes.JokesProvider;
+import com.udacity.gradle.builditbigger.R;
 
 import java.util.concurrent.ExecutionException;
 
@@ -51,11 +50,9 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view) {
         // comment for now .. i will put a new button
-        */
-/*JokesProvider jokes = new JokesProvider();
+        /*JokesProvider jokes = new JokesProvider();
 
-        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();*//*
-
+        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();*/
         tellJokeTest(view);
     }
 
@@ -85,4 +82,3 @@ public class MainActivity extends ActionBarActivity {
 
 
 }
-*/

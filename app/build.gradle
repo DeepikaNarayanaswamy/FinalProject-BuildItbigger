@@ -21,6 +21,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.free.builditbigger"
+            versionName "1.0-demo"
+        }
+        paid {
+            applicationId "com.udacity.gradle.paid.builditbigger"
+            versionName "1.0-full"
+        }
+    }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

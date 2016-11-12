@@ -1,4 +1,3 @@
-/*
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
@@ -51,11 +50,9 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view) {
         // comment for now .. i will put a new button
-        */
-/*JokesProvider jokes = new JokesProvider();
+        /*JokesProvider jokes = new JokesProvider();
 
-        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();*//*
-
+        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();*/
         tellJokeTest(view);
     }
 
@@ -85,4 +82,3 @@ public class MainActivity extends ActionBarActivity {
 
 
 }
-*/
