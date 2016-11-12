@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
         //String name = params[0].second;
 
         try {
+            Log.v("GCEASYNC TASK","Inside async task");
             return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
@@ -52,6 +54,8 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
 
     @Override
     protected void onPostExecute(String result) {
+        System.out.println("Post execute"  + result);
+
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

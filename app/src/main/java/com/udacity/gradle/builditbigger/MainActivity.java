@@ -62,6 +62,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJokeTest(View view) {
+        Intent intent = new Intent(this,MainJokeActivity.class);
+
         new GCEAsyncTask().execute(new Pair<Context, String>(this, null));
     }
 

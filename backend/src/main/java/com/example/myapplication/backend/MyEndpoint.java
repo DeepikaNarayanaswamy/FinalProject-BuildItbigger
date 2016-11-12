@@ -38,7 +38,7 @@ public class MyEndpoint {
         MyBean response = new MyBean();
         JokesProvider provider = new JokesProvider();
         response.setData(provider.getJoke());
-
+        System.out.println("INside my endpoint getjoke method");
         return response;
     }
 
