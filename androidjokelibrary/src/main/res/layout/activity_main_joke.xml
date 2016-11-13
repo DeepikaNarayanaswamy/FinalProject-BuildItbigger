@@ -10,10 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.androidjokelibrary.MainJokeActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/laugh"
+        android:padding="10dp"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/jokeTextView"/>
+        android:id="@+id/jokeTextView"
+        android:textSize="15dp"
+        android:textColor="#800080"/>
 </RelativeLayout>
