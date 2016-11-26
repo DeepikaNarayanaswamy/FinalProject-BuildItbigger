@@ -41,8 +41,8 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
 
             myApiService = builder.build();
         }
-
-        context = params[0].first;
+        if (params != null && params.length > 0)
+            context = params[0].first;
         //String name = params[0].second;
 
         try {
@@ -58,9 +58,11 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
     protected void onPostExecute(String result) {
         System.out.println("Post execute" + result);
         System.out.println("Post execute Context" + context);
-        Intent intent = new Intent(context,MainJokeActivity.class);
-        intent.putExtra("JOKE",result);
-        context.getApplicationContext().startActivity(intent);
+         if (context != null) {
+             Intent intent = new Intent(context, MainJokeActivity.class);
+             intent.putExtra("JOKE", result);
+             context.getApplicationContext().startActivity(intent);
+         }
        /* Intent intent = new Intent(context,MainJokeActivity.class);
         intent.putExtra("JOKE",result);
         context.startActivity(intent);*/
