@@ -57,6 +57,7 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
     @Override
     protected void onPostExecute(String result) {
         System.out.println("Post execute" + result);
+        System.out.println("Post execute Context" + context);
         Intent intent = new Intent(context,MainJokeActivity.class);
         intent.putExtra("JOKE",result);
         context.getApplicationContext().startActivity(intent);

@@ -10,7 +10,6 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.udacity.gradle.builditbigger.GCEAsyncTask;
 import com.udacity.gradle.builditbigger.R;
 
@@ -21,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
