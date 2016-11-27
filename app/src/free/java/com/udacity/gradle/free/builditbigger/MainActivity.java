@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    public void tellJokeTest(View view)  {
+    public void tellJokeTest(View view) {
         try {
 
             AsyncTaskCompleted taskCompleted = new AsyncTaskCompleted() {
@@ -83,13 +83,12 @@ public class MainActivity extends AppCompatActivity{
                     startActivity(intent);
                 }
             };
-             new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
+            new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null));
 
-        }catch(ExecutionException ex ){
+        } catch (Exception ex) {
             ex.getMessage();
-        }catch (InterruptedException ex){
-            ex.printStackTrace();
         }
+
     }
 
 

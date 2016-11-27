@@ -24,7 +24,7 @@ public class JokesProvider {
 
         Random rand = new Random();
 
-        int  n = rand.nextInt(jokes.size()-1);
+        int  n = rand.nextInt(jokes.size());
         return jokes.get(n);
 
     }

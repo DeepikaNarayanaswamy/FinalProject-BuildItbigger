@@ -75,14 +75,12 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             };
-            new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
+            new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null));
 
-        }catch(ExecutionException ex ){
+        }catch(Exception ex ) {
             ex.getMessage();
-        }catch (InterruptedException ex){
-            ex.printStackTrace();
-        }
-    }
+
+        }  }
 
 
 
