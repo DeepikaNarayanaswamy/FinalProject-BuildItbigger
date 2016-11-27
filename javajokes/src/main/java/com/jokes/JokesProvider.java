@@ -21,7 +21,7 @@ public class JokesProvider {
                 "Hey, nice belt!");
     }
     public String getJoke(){
-       // Random ran = new Random(jokes.size());
+
         Random rand = new Random();
 
         int  n = rand.nextInt(jokes.size()-1);
