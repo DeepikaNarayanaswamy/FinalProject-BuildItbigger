@@ -50,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        // comment for now .. i will put a new button
-        /*JokesProvider jokes = new JokesProvider();
-
-        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();*/
         tellJokeTest(view);
     }
 
