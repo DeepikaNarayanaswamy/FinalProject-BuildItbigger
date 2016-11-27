@@ -9,6 +9,8 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.udacity.gradle.builditbigger.AsyncTaskCompleted;
 import com.udacity.gradle.builditbigger.GCEAsyncTask;
 import com.example.android.androidjokelibrary.MainJokeActivity;
 import com.jokes.JokesProvider;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        tellJokeTest(view);
+          tellJokeTest(view);
     }
 
     public void launchJokeActivity(View view){
@@ -64,18 +66,24 @@ public class MainActivity extends AppCompatActivity {
     public void tellJokeTest(View view)  {
         try {
 
+            AsyncTaskCompleted taskCompleted = new AsyncTaskCompleted() {
+                @Override
+                public void onTaskCompleted(String result) {
+                    Intent intent = new Intent(getApplicationContext(), MainJokeActivity.class);
 
-            String joke = new GCEAsyncTask().execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
-            Intent intent = new Intent(this, MainJokeActivity.class);
+                    intent.putExtra("JOKE", result);
+                    startActivity(intent);
+                }
+            };
+            new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
 
-            intent.putExtra("JOKE", joke);
-            startActivity(intent);
         }catch(ExecutionException ex ){
             ex.getMessage();
         }catch (InterruptedException ex){
             ex.printStackTrace();
         }
     }
+
 
 
 }

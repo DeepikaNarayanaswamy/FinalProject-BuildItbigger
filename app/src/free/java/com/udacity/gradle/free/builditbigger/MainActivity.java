@@ -10,6 +10,8 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.udacity.gradle.builditbigger.AsyncTaskCompleted;
 import com.udacity.gradle.builditbigger.GCEAsyncTask;
 import com.udacity.gradle.builditbigger.R;
 
@@ -19,7 +21,7 @@ import com.jokes.JokesProvider;
 import java.util.concurrent.ExecutionException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
 
     @Override
@@ -72,12 +74,17 @@ public class MainActivity extends AppCompatActivity {
     public void tellJokeTest(View view)  {
         try {
 
+            AsyncTaskCompleted taskCompleted = new AsyncTaskCompleted() {
+                @Override
+                public void onTaskCompleted(String result) {
+                    Intent intent = new Intent(getApplicationContext(), MainJokeActivity.class);
 
-            String joke = new GCEAsyncTask().execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
-            Intent intent = new Intent(this, MainJokeActivity.class);
+                    intent.putExtra("JOKE", result);
+                    startActivity(intent);
+                }
+            };
+             new GCEAsyncTask(taskCompleted).execute(new Pair<Context, String>(this.getApplicationContext(), null)).get();
 
-            intent.putExtra("JOKE", joke);
-            startActivity(intent);
         }catch(ExecutionException ex ){
             ex.getMessage();
         }catch (InterruptedException ex){

@@ -21,6 +21,11 @@ import java.io.IOException;
 public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+    private AsyncTaskCompleted taskCompletedListener;
+
+    public  GCEAsyncTask(AsyncTaskCompleted taskCompleted){
+        taskCompletedListener = taskCompleted;
+    }
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -58,11 +63,14 @@ public class GCEAsyncTask extends AsyncTask<Pair<Context, String>, Void, String>
     protected void onPostExecute(String result) {
         System.out.println("Post execute" + result);
         System.out.println("Post execute Context" + context);
-         if (context != null) {
+        if (taskCompletedListener != null)
+            taskCompletedListener.onTaskCompleted(result);
+
+        /* if (context != null) {
              Intent intent = new Intent(context, MainJokeActivity.class);
              intent.putExtra("JOKE", result);
              context.getApplicationContext().startActivity(intent);
-         }
+         }*/
        /* Intent intent = new Intent(context,MainJokeActivity.class);
         intent.putExtra("JOKE",result);
         context.startActivity(intent);*/

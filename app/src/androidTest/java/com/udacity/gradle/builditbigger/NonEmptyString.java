@@ -17,8 +17,8 @@ public class NonEmptyString  extends AndroidTestCase {
 
     public void testEmpty() {
         try {
-             new GCEAsyncTask().execute();
-            String joke = new GCEAsyncTask().get(30, TimeUnit.SECONDS);
+             new GCEAsyncTask(null).execute();
+            String joke = new GCEAsyncTask(null).get(30, TimeUnit.SECONDS);
             assert joke !=null;
         } catch (InterruptedException e) {
             e.printStackTrace();
